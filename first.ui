@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QMainWindow</class>
+ <widget class="QMainWindow" name="QMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1123</width>
+    <height>801</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>LR(0)语法分析器</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+	background:#1D9BC9;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>190</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border: 1px solid; /* QPushButton边框的宽度、样式和颜色 */
+	border-radius: 5px; /* 边框圆角 */
+	background-color: #394E56; /* 背景颜色 */
+	color: white; /* 文本颜色 */
+	font-size: 10pt; /* 文本字体大小 */
+}
+ 
+QPushButton:hover {	/* 鼠标悬浮在QPushButton上时的状态 */
+	background-color: #444444;
+	color: white;
+}
+ 
+QPushButton:pressed { /* 鼠标按压在QPushButton上时的状态 */
+	background-color: #525252;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>确定</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>90</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>请输入文法：</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>50</y>
+      <width>231</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit {
+	border: 1px solid;
+	border-radius: 3px; /* 边框圆角 */
+	background-color: #394E56; /* 背景颜色 */
+	color: white; /* 文本颜色 */
+	font-size: 10pt; /* 文本字体大小 */
+}
+</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>190</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	border: 1px solid; /* QPushButton边框的宽度、样式和颜色 */
+	border-radius: 5px; /* 边框圆角 */
+	background-color: #394E56; /* 背景颜色 */
+	color: white; /* 文本颜色 */
+	font-size: 10pt; /* 文本字体大小 */
+}
+ 
+QPushButton:hover {	/* 鼠标悬浮在QPushButton上时的状态 */
+	background-color: #444444;
+	color: white;
+}
+ 
+QPushButton:pressed { /* 鼠标按压在QPushButton上时的状态 */
+	background-color: #525252;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>退出</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_2">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>10</y>
+      <width>531</width>
+      <height>311</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit {
+	border: 1px solid;
+	border-radius: 3px; /* 边框圆角 */
+	background-color: #394E56; /* 背景颜色 */
+	color: white; /* 文本颜色 */
+	font-size: 10pt; /* 文本字体大小 */
+}
+</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QTableView" name="tableView">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>380</y>
+      <width>1001</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget{
+color:#DCDCDC;
+background:#1D9BC9;
+border:1px solid #1D9BC9;
+alternate-background-color:#1D9BC9;
+gridline-color:#1D9BC9;
+}
+
+QTableWidget::item:selected{
+color:#1D9BC9;
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #1D9BC9,stop:1 #1D9BC9);
+}
+
+QHeaderView::section{
+text-align:center;
+background:#1D9BC9;
+padding:3px;
+margin:0px;
+color:#DCDCDC;
+border:1px solid #1D9BC9;
+border-left-width:0;
+}
+ 
+QScrollBar:vertical{
+background:#1D9BC9;
+padding:0px;
+border-radius:6px;
+max-width:12px;
+}
+ 
+ 
+QScrollBar::handle:vertical{
+background:#1D9BC9;
+}
+ 
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+background:#1D9BC9;
+}
+QScrollBar::sub-page:vertical{
+background:#1D9BC9;
+}
+ 
+ 
+QScrollBar::add-page:vertical{
+background:#1D9BC9;
+}
+ 
+QScrollBar::add-line:vertical{
+background:none;
+}
+QScrollBar::sub-line:vertical{
+background:none;
+}
+</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>340</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>LR(0)分析表/字符串分析过程</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QTableView" name="tableView_2">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>380</y>
+      <width>1001</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget{
+color:#DCDCDC;
+background:#1D9BC9;
+border:1px solid #1D9BC9;
+alternate-background-color:#1D9BC9;
+gridline-color:#1D9BC9;
+}
+
+QTableWidget::item:selected{
+color:#1D9BC9;
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #1D9BC9,stop:1 #1D9BC9);
+}
+
+QHeaderView::section{
+text-align:center;
+background:#1D9BC9;
+padding:3px;
+margin:0px;
+color:#DCDCDC;
+border:1px solid #1D9BC9;
+border-left-width:0;
+}
+ 
+QScrollBar:vertical{
+background:#1D9BC9;
+padding:0px;
+border-radius:6px;
+max-width:12px;
+}
+ 
+ 
+QScrollBar::handle:vertical{
+background:#1D9BC9;
+}
+ 
+QScrollBar::handle:hover:vertical,QScrollBar::handle:pressed:vertical{
+background:#1D9BC9;
+}
+QScrollBar::sub-page:vertical{
+background:#1D9BC9;
+}
+ 
+ 
+QScrollBar::add-page:vertical{
+background:#1D9BC9;
+}
+ 
+QScrollBar::add-line:vertical{
+background:none;
+}
+QScrollBar::sub-line:vertical{
+background:none;
+}
+</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_3">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>330</y>
+      <width>331</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit {
+	border: 1px solid;
+	border-radius: 3px; /* 边框圆角 */
+	background-color: #525252; /* 背景颜色 */
+	color: white; /* 文本颜色 */
+	font-size: 10pt; /* 文本字体大小 */
+}
+</string>
+    </property>
+   </widget>
+   <zorder>tableView_2</zorder>
+   <zorder>pushButton</zorder>
+   <zorder>label</zorder>
+   <zorder>textEdit</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>textEdit_2</zorder>
+   <zorder>checkBox</zorder>
+   <zorder>tableView</zorder>
+   <zorder>textEdit_3</zorder>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>QMainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>464</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>567</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>tableView</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>232</x>
+     <y>356</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>233</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
