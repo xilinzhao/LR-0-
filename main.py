@@ -26,7 +26,6 @@ def read(ui):
         f.close()
         lr.analyse(ui)
         ui.checkBox.click()
-        # ui.label.setText("请输入文法：")
         return
 
 
